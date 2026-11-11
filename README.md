@@ -38,3 +38,19 @@ PokemonMatch.WPF/
 └── App.xaml                   # Global Styles, Brushes, Palette
 ```
 
+
+
+#### Link Clone dự án:
+
+```
+git clone https://github.com/didatium/PokeMatch.git
+git checkout develop
+git pull origin develop
+```
+
+**Phân công file cụ thể để tránh conflict:**
+
+- **Thành viên 1:** Tạo nhánh `feature/ui-menu`, chỉ làm việc trên thư mục `Views/MainMenuView.xaml` và `ViewModels/MenuViewModel.cs`.
+- **Thành viên 2:** Tạo nhánh `feature/ui-gameplay`, chỉ làm việc trên thư mục `Views/GamePlayView.xaml` và `ViewModels/GamePlayViewModel.cs`.
+- **Thành viên 3:** Tạo nhánh `feature/core-algorithm`, chỉ tạo file trong thư mục `Core/` và `Models/` (chưa cần đụng vào giao diện).
+- **Quy định PR:** Làm xong task thì đẩy lên nhánh feature của mình, tạo Pull Request trỏ vào nhánh `develop` và tag bạn vào review. Tuyệt đối không push thẳng lên `develop` hay `main`
