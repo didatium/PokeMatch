@@ -1,9 +1,16 @@
 ﻿<Application x:Class="PokeMatch.WPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PokeMatch.WPF"
+             xmlns:vm="clr-namespace:PokeMatch.WPF.ViewModels"
+             xmlns:v="clr-namespace:PokeMatch.WPF.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Mapping ViewModel sang View tương ứng -->
+        <DataTemplate DataType="{x:Type vm:MenuViewModel}">
+            <v:MainMenuView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:GamePlayViewModel}">
+            <v:GamePlayView/>
+        </DataTemplate>
     </Application.Resources>
 </Application>
