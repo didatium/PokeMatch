@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PokeMatch.WPF.Views.controls;
 
 namespace PokeMatch.WPF.Views
 {
@@ -24,5 +25,28 @@ namespace PokeMatch.WPF.Views
         {
             InitializeComponent();
         }
+
+        private void PauseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement pause logic
+        }
+
+        private void RestartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement restart logic
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement back to menu logic
+        }
+    }
+
+    // Data model for tiles
+    public class TileModel
+    {
+        public bool IsSelected { get; set; }
+        public ImageSource? AssetSource { get; set; }
+        public int TileId { get; set; }
     }
 }
