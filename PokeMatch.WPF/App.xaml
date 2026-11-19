@@ -5,7 +5,23 @@
              xmlns:v="clr-namespace:PokeMatch.WPF.Views"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Mapping ViewModel sang View tương ứng -->
+        <!-- 1. Khai báo tài nguyên Pixel Font -->
+        <FontFamily x:Key="PixelFont">pack://application:,,,/Assets/Fonts/#Press Start 2P</FontFamily>
+
+        <!-- 2. Áp dụng mặc định cho toàn bộ TextBlock và Control -->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource PixelFont}" />
+        </Style>
+        <Style TargetType="Control">
+            <Setter Property="FontFamily" Value="{StaticResource PixelFont}" />
+        </Style>
+
+        <!-- 3. Khử mờ pixel cho toàn bộ hình ảnh -->
+        <Style TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        </Style>
+
+        <!-- Mapping ViewModel sang View -->
         <DataTemplate DataType="{x:Type vm:MenuViewModel}">
             <v:MainMenuView/>
         </DataTemplate>

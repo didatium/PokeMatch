@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:PokeMatch.WPF.ViewModels"
         Title="PokeMatch" Height="720" Width="1280"
+        UseLayoutRounding="True"
+        TextOptions.TextFormattingMode="Display"
         WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:MainViewModel/>
