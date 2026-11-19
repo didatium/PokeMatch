@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace PokeMatch.WPF.Views
+namespace PokeMatch.WPF.Views.controls
 {
     /// <summary>
     /// Interaction logic for TileItemControl.xaml
@@ -16,7 +16,7 @@ namespace PokeMatch.WPF.Views
 
         public static readonly DependencyProperty AssetSourceProperty =
             DependencyProperty.Register("AssetSource", typeof(ImageSource), typeof(TileItemControl),
-                new PropertyMetadata(null));
+                new PropertyMetadata((ImageSource?)null));
 
         public static readonly DependencyProperty TileIdProperty =
             DependencyProperty.Register("TileId", typeof(int), typeof(TileItemControl),
@@ -28,9 +28,9 @@ namespace PokeMatch.WPF.Views
             set => SetValue(IsSelectedProperty, value);
         }
 
-        public ImageSource AssetSource
+        public ImageSource? AssetSource
         {
-            get => (ImageSource)GetValue(AssetSourceProperty);
+            get => GetValue(AssetSourceProperty) as ImageSource;
             set => SetValue(AssetSourceProperty, value);
         }
 
