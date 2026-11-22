@@ -42,11 +42,4 @@ namespace PokeMatch.WPF.Views
         }
     }
 
-    // Data model for tiles
-    public class TileModel
-    {
-        public bool IsSelected { get; set; }
-        public ImageSource? AssetSource { get; set; }
-        public int TileId { get; set; }
-    }
 }
