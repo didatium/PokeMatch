@@ -16,6 +16,9 @@ namespace PokeMatch.WPF.ViewModels
         [ObservableProperty]
         private double _brightness = 100;
 
+        [ObservableProperty]
+        private double _soundEffectsVolume = 70;
+
         public event Action? NewGameRequested;
         public event Action? ContinueRequested;
 
