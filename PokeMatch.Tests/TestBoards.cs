@@ -45,5 +45,50 @@ namespace PokeMatch.Tests
             "212.1",
             "222.."
         };
+
+        /// <summary>
+        /// Z-path: hai ô '1' ở (0,0) và (2,3). Hai góc của L-path là (0,3) và (2,0) đều bị '2' chiếm,
+        /// nên phải đi 2 góc, ví dụ (0,0) -> (0,1) -> (2,1) -> (2,3).
+        /// </summary>
+        public static readonly string[] ZPath =
+        {
+            "1..2",
+            "....",
+            "2..1"
+        };
+
+        /// <summary>
+        /// Cần 3 góc rẽ nên KHÔNG nối được. '1' ở (1,1) chỉ thoát ra được về phía đông,
+        /// '1' ở (5,5) chỉ vào được từ phía bắc, và (1,5) bị chặn để không có L-path.
+        /// </summary>
+        public static readonly string[] RequiresThreeTurns =
+        {
+            ".2.....",
+            "21...2.",
+            ".2.....",
+            ".......",
+            ".......",
+            "....212",
+            ".....2."
+        };
+
+        /// <summary>Mọi ô đều khác loại: không có cặp nào, hết nước đi.</summary>
+        public static readonly string[] AllUnique =
+        {
+            "123",
+            "456",
+            "789"
+        };
+
+        /// <summary>
+        /// Cặp '1' ở (0,0) và (1,1), nhưng '1' ở giữa bị vòng ngoài vây kín: hết nước đi.
+        /// Nếu xoá ô (0,1) thì có L-path (0,0) -> (0,1) -> (1,1).
+        /// </summary>
+        public static readonly string[] SealedPair =
+        {
+            "1AB",
+            "C1D",
+            "EFG"
+        };
     }
 }
