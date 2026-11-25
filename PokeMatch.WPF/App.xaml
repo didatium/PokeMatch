@@ -4,29 +4,194 @@
              xmlns:vm="clr-namespace:PokeMatch.WPF.ViewModels"
              xmlns:v="clr-namespace:PokeMatch.WPF.Views"
              StartupUri="MainWindow.xaml">
+
     <Application.Resources>
-        <!-- 1. Khai báo tài nguyên Pixel Font -->
-        <FontFamily x:Key="PixelFont">pack://application:,,,/Assets/Fonts/#Press Start 2P</FontFamily>
 
-        <!-- 2. Áp dụng mặc định cho toàn bộ TextBlock và Control -->
-        <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="{StaticResource PixelFont}" />
-        </Style>
-        <Style TargetType="Control">
-            <Setter Property="FontFamily" Value="{StaticResource PixelFont}" />
+        <!-- ================================= -->
+        <!-- 1. FONT RESOURCES                 -->
+        <!-- ================================= -->
+
+        <!-- English: Press Start 2P -->
+        <FontFamily x:Key="EnglishPixelFont">
+            pack://application:,,,/Assets/Fonts/#Press Start 2P
+        </FontFamily>
+
+        <!-- Vietnamese: Pixelify Sans -->
+        <FontFamily x:Key="VietnamesePixelFont">
+            pack://application:,,,/Assets/Fonts/#Pixelify Sans
+        </FontFamily>
+
+
+        <!-- ================================= -->
+        <!-- 2. TEXT STYLES                    -->
+        <!-- ================================= -->
+
+        <!-- Text tiếng Anh -->
+        <Style x:Key="EnglishPixelText"
+               TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="{StaticResource EnglishPixelFont}"/>
+
         </Style>
 
-        <!-- 3. Khử mờ pixel cho toàn bộ hình ảnh -->
+        <!-- Text tiếng Việt -->
+        <Style x:Key="VietnamesePixelText"
+               TargetType="TextBlock">
+
+            <Setter Property="FontFamily"
+                    Value="{StaticResource VietnamesePixelFont}"/>
+
+        </Style>
+
+
+        <!-- ================================= -->
+        <!-- 3. IMAGE RENDERING                -->
+        <!-- ================================= -->
+
         <Style TargetType="Image">
-            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+
+            <Setter Property="RenderOptions.BitmapScalingMode"
+                    Value="NearestNeighbor"/>
+
         </Style>
 
-        <!-- Mapping ViewModel sang View -->
+
+        <!-- ================================= -->
+        <!-- 4. SHARED BUTTON STYLES           -->
+        <!-- ================================= -->
+
+        <!-- Button mặc định: tiếng Anh -->
+        <Style x:Key="PixelMenuButton"
+               TargetType="Button">
+
+            <Setter Property="Width"
+                    Value="300"/>
+
+            <Setter Property="Height"
+                    Value="54"/>
+
+            <Setter Property="Margin"
+                    Value="0,7"/>
+
+            <Setter Property="Foreground"
+                    Value="#F4F0DE"/>
+
+            <Setter Property="Background"
+                    Value="#304568"/>
+
+            <Setter Property="FontFamily"
+                    Value="{StaticResource EnglishPixelFont}"/>
+
+            <Setter Property="FontSize"
+                    Value="15"/>
+
+            <Setter Property="FontWeight"
+                    Value="Bold"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#7892B5"/>
+
+            <Setter Property="BorderThickness"
+                    Value="3"/>
+
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="Button">
+
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True">
+
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <!-- Hover Effect -->
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Background"
+                                        Value="#496B99"/>
+
+                                <Setter TargetName="ButtonBorder"
+                                        Property="BorderBrush"
+                                        Value="#F6C85F"/>
+
+                            </Trigger>
+
+                            <!-- Pressed Effect -->
+                            <Trigger Property="IsPressed"
+                                     Value="True">
+
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Background"
+                                        Value="#243650"/>
+
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Opacity"
+                                        Value="0.8"/>
+
+                            </Trigger>
+
+                            <!-- Disabled Effect -->
+                            <Trigger Property="IsEnabled"
+                                     Value="False">
+
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Opacity"
+                                        Value="0.4"/>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+
+        <!-- Button dành cho tiếng Việt -->
+        <!-- Kế thừa toàn bộ thiết kế PixelMenuButton -->
+
+        <Style x:Key="PixelMenuButtonVietnamese"
+               TargetType="Button"
+               BasedOn="{StaticResource PixelMenuButton}">
+
+            <Setter Property="FontFamily"
+                    Value="{StaticResource VietnamesePixelFont}"/>
+
+        </Style>
+
+
+        <!-- ================================= -->
+        <!-- 5. VIEWMODEL TO VIEW MAPPING      -->
+        <!-- ================================= -->
+
         <DataTemplate DataType="{x:Type vm:MenuViewModel}">
             <v:MainMenuView/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type vm:GamePlayViewModel}">
             <v:GamePlayView/>
         </DataTemplate>
+
     </Application.Resources>
+
 </Application>

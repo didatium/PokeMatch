@@ -27,111 +27,6 @@
         <SolidColorBrush x:Key="MenuText"
                          Color="#F4F0DE"/>
 
-        <!-- Pixel Button Style -->
-        <Style x:Key="PixelMenuButton"
-               TargetType="Button">
-
-            <Setter Property="Width"
-                    Value="300"/>
-
-            <Setter Property="Height"
-                    Value="54"/>
-
-            <Setter Property="Margin"
-                    Value="0,7"/>
-
-            <Setter Property="Foreground"
-                    Value="#F4F0DE"/>
-
-            <Setter Property="Background"
-                    Value="#304568"/>
-
-            <Setter Property="FontFamily"
-                    Value="Consolas"/>
-
-            <Setter Property="FontSize"
-                    Value="15"/>
-
-            <Setter Property="FontWeight"
-                    Value="Bold"/>
-
-            <Setter Property="BorderBrush"
-                    Value="#7892B5"/>
-
-            <Setter Property="BorderThickness"
-                    Value="3"/>
-
-            <Setter Property="Cursor"
-                    Value="Hand"/>
-
-            <Setter Property="Template">
-
-                <Setter.Value>
-
-                    <ControlTemplate TargetType="Button">
-
-                        <Border x:Name="ButtonBorder"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                SnapsToDevicePixels="True">
-
-                            <ContentPresenter
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"/>
-
-                        </Border>
-
-                        <ControlTemplate.Triggers>
-
-                            <!-- Hover Effect -->
-                            <Trigger Property="IsMouseOver"
-                                     Value="True">
-
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Background"
-                                        Value="#496B99"/>
-
-                                <Setter TargetName="ButtonBorder"
-                                        Property="BorderBrush"
-                                        Value="#F6C85F"/>
-
-                            </Trigger>
-
-                            <!-- Pressed Effect -->
-                            <Trigger Property="IsPressed"
-                                     Value="True">
-
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Background"
-                                        Value="#243650"/>
-
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Opacity"
-                                        Value="0.8"/>
-
-                            </Trigger>
-
-                            <!-- Disabled Effect -->
-                            <Trigger Property="IsEnabled"
-                                     Value="False">
-
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Opacity"
-                                        Value="0.4"/>
-
-                            </Trigger>
-
-                        </ControlTemplate.Triggers>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-
-            </Setter>
-
-        </Style>
-
     </UserControl.Resources>
 
 
@@ -188,18 +83,17 @@
                 <!-- GAME TITLE -->
 
                 <TextBlock Text="POKEMATCH"
-                           FontFamily="Consolas"
+                           Style="{StaticResource EnglishPixelText}"
                            FontSize="35"
                            FontWeight="Bold"
                            Foreground="{StaticResource MenuAccent}"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,12"/>
 
-
                 <!-- SUBTITLE -->
 
                 <TextBlock Text="A PIXEL MATCHING ADVENTURE"
-                           FontFamily="Consolas"
+                           Style="{StaticResource EnglishPixelText}"
                            FontSize="13"
                            Foreground="#A9BDD8"
                            HorizontalAlignment="Center"
@@ -247,7 +141,7 @@
                 <!-- FOOTER -->
 
                 <TextBlock Text="PRESS START TO PLAY"
-                           FontFamily="Consolas"
+                           Style="{StaticResource EnglishPixelText}"
                            FontSize="10"
                            Foreground="#8499B7"
                            HorizontalAlignment="Center"
@@ -283,45 +177,48 @@
 
 
                     <!-- TITLE -->
-
                     <TextBlock Text="SETTINGS"
-                               FontFamily="Consolas"
+                               Style="{StaticResource EnglishPixelText}"
                                FontSize="22"
                                FontWeight="Bold"
                                Foreground="{StaticResource MenuAccent}"
                                HorizontalAlignment="Center"
                                Margin="0,0,0,30"/>
 
-
                     <!-- MUSIC VOLUME -->
-
                     <TextBlock Text="MUSIC VOLUME"
-                               FontFamily="Consolas"
+                               Style="{StaticResource EnglishPixelText}"
                                FontSize="13"
                                FontWeight="Bold"
                                Foreground="{StaticResource MenuText}"/>
-
 
                     <Slider Minimum="0"
                             Maximum="100"
-                            Value="{Binding MusicVolume,
-                                            Mode=TwoWay}"
+                            Value="{Binding MusicVolume, Mode=TwoWay}"
                             Margin="0,10,0,25"/>
 
-
-                    <!-- BRIGHTNESS -->
-
-                    <TextBlock Text="BRIGHTNESS"
-                               FontFamily="Consolas"
+                    <!-- SOUND EFFECTS VOLUME -->
+                    <TextBlock Text="SOUND EFFECTS VOLUME"
+                               Style="{StaticResource EnglishPixelText}"
                                FontSize="13"
                                FontWeight="Bold"
                                Foreground="{StaticResource MenuText}"/>
 
+                    <Slider Minimum="0"
+                            Maximum="100"
+                            Value="{Binding SoundEffectsVolume, Mode=TwoWay}"
+                            Margin="0,10,0,25"/>
+
+                    <!-- BRIGHTNESS -->
+                    <TextBlock Text="BRIGHTNESS"
+                               Style="{StaticResource EnglishPixelText}"
+                               FontSize="13"
+                               FontWeight="Bold"
+                               Foreground="{StaticResource MenuText}"/>
 
                     <Slider Minimum="30"
                             Maximum="100"
-                            Value="{Binding Brightness,
-                                            Mode=TwoWay}"
+                            Value="{Binding Brightness, Mode=TwoWay}"
                             Margin="0,10,0,30"/>
 
 
