@@ -10,8 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-	<Resource Include="Assets\Sprites\*.png" />
-	<Resource Include="Assets\Fonts\*.ttf" />
+    <Resource Include="Assets\Sprites\*.png" />
+    <Resource Include="Assets\Fonts\*.ttf" />
+    <Content Include="Assets\Audio\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
