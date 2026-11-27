@@ -11,6 +11,7 @@
 
     <UserControl.Resources>
         <converters:PercentageConverter x:Key="PercentageConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
         <SolidColorBrush x:Key="GameBackground" Color="#10182B"/>
         <SolidColorBrush x:Key="HudBackground" Color="#1B2942"/>
@@ -164,5 +165,13 @@
                         Command="{Binding RestartCommand}"/>
             </StackPanel>
         </Border>
+
+        <!-- PAUSE MENU OVERLAY -->
+        <ContentControl Grid.Row="0"
+                Grid.RowSpan="3"
+                Content="{Binding PauseMenu}"
+                Visibility="{Binding IsPaused,
+                    Converter={StaticResource BooleanToVisibilityConverter}}"
+                Panel.ZIndex="100"/>
     </Grid>
 </UserControl>

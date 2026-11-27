@@ -102,65 +102,89 @@
 
                 <Setter.Value>
 
-                    <ControlTemplate TargetType="Button">
 
-                        <Border x:Name="ButtonBorder"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                SnapsToDevicePixels="True">
+					<ControlTemplate TargetType="Button">
 
-                            <ContentPresenter
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"/>
+						<Border x:Name="ButtonBorder"
+								Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								SnapsToDevicePixels="True">
 
-                        </Border>
+							<Grid>
 
-                        <ControlTemplate.Triggers>
+								<!-- Mũi tên chọn Button -->
+								<TextBlock x:Name="SelectionArrow"
+										   Text="▶"
+										   FontFamily="Segoe UI Symbol"
+										   FontSize="16"
+										   FontWeight="Bold"
+										   Foreground="#F6C85F"
+										   HorizontalAlignment="Left"
+										   VerticalAlignment="Center"
+										   Margin="12,0,0,0"
+										   Opacity="0"/>
 
-                            <!-- Hover Effect -->
-                            <Trigger Property="IsMouseOver"
-                                     Value="True">
+								<!-- Nội dung Button -->
+								<ContentPresenter
+									HorizontalAlignment="Center"
+									VerticalAlignment="Center"
+									RecognizesAccessKey="True"/>
 
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Background"
-                                        Value="#496B99"/>
+							</Grid>
 
-                                <Setter TargetName="ButtonBorder"
-                                        Property="BorderBrush"
+						</Border>
+
+						<ControlTemplate.Triggers>
+
+							<!-- Hover Effect -->
+							<Trigger Property="IsMouseOver" Value="True">
+
+								<Setter TargetName="ButtonBorder"
+										Property="Background"
+										Value="#496B99"/>
+
+								<Setter TargetName="ButtonBorder"
+										Property="BorderBrush"
+										Value="#F6C85F"/>
+
+                                <Setter Property="Foreground"
                                         Value="#F6C85F"/>
 
-                            </Trigger>
+                                <Setter TargetName="SelectionArrow"
+										Property="Opacity"
+										Value="1"/>
 
-                            <!-- Pressed Effect -->
-                            <Trigger Property="IsPressed"
-                                     Value="True">
+							</Trigger>
 
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Background"
-                                        Value="#243650"/>
+							<!-- Pressed Effect -->
+							<Trigger Property="IsPressed" Value="True">
 
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Opacity"
-                                        Value="0.8"/>
+								<Setter TargetName="ButtonBorder"
+										Property="Background"
+										Value="#243650"/>
 
-                            </Trigger>
+								<Setter TargetName="ButtonBorder"
+										Property="Opacity"
+										Value="0.8"/>
 
-                            <!-- Disabled Effect -->
-                            <Trigger Property="IsEnabled"
-                                     Value="False">
+							</Trigger>
 
-                                <Setter TargetName="ButtonBorder"
-                                        Property="Opacity"
-                                        Value="0.4"/>
+							<!-- Disabled Effect -->
+							<Trigger Property="IsEnabled" Value="False">
 
-                            </Trigger>
+								<Setter TargetName="ButtonBorder"
+										Property="Opacity"
+										Value="0.4"/>
 
-                        </ControlTemplate.Triggers>
+							</Trigger>
 
-                    </ControlTemplate>
+						</ControlTemplate.Triggers>
 
-                </Setter.Value>
+					</ControlTemplate>
+
+
+				</Setter.Value>
 
             </Setter>
 
@@ -190,6 +214,10 @@
 
         <DataTemplate DataType="{x:Type vm:GamePlayViewModel}">
             <v:GamePlayView/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:PauseMenuViewModel}">
+            <v:PauseMenuView/>
         </DataTemplate>
 
     </Application.Resources>
